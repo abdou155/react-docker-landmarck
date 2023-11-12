@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-landmarck-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: react-landmarck
+  template:
+    metadata:
+      labels:
+        app: react-landmarck
+    spec:
+      containers:
+        - name: react-landmarck-container
+          image: react-app:latest
+          ports:
+            - containerPort: 3000
